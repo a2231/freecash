@@ -10,6 +10,11 @@
     <link href="./folder/css" rel="stylesheet"><!--//online-fonts -->
     <script src="./folder/jquery.min.js.download">
     </script>
+    <script>
+        if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+            window.location.replace("./mobile.html");
+        }
+    </script>
 </head>
 <body>
 <div class="header">
@@ -27,6 +32,10 @@
         <!--End get current point-->
         <a href="./Redirector.html">
             <img src="./folder/Earn.png" style="height: 80px">
+        </a>
+        <br>
+        <a href="./redeem.html">
+            <img src="./folder/redeem.png" style="height: 80px">
         </a>
 
     </div>
