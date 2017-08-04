@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+<script>
+    //check previous url
+    var old = document.referrer;
+    var lasturl = "http://microify.com/2mJp";
+    var direct = false;
+    if(old!==lasturl){
+        direct = true;
+    }
+
+    //check stay enough time in ad page
+    var d = new Date();
+    var oldtime = localStorage.getItem("time");
+    var newtime = d.getTime();
+    var interval = Math.abs(oldtime - newtime);
+    if (interval < 6000) {
+        direct = true;
+    }
+
+    //Get date
+    Date.prototype.yyyymmdd = function() {
+        var mm = this.getMonth() + 1; // getMonth() is zero-based
+        var dd = this.getDate();
+
+        return [this.getFullYear(),
+            (mm>9 ? '' : '0') + mm,
+            (dd>9 ? '' : '0') + dd
+        ].join('');
+    };
+    var date = new Date();
+    var today = date.yyyymmdd();
+    
+    if(direct){
+        alert("please turn off adfly bypasser!");
+        window.location.replace(lasturl);
+    }else {
+        localStorage.setItem("ad",today);
+        var point = localStorage.getItem("point");
+        point++;
+        localStorage.setItem("point",point);
+        window.location.replace("./");
+    }
+
+
+</script>
+</body>
+</html>

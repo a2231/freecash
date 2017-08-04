@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+<script>
+    //string
+    var mobile = "http://cashack.tk/mobile.html";
+    var pc = "http://cashack.tk/pc.html";
+    var emptyad = "";
+    var ad1 = "http://dataurbia.com/J8D";
+    var ad2 = "http://dataurbia.com/J8N";
+    //get date
+    Date.prototype.yyyymmdd = function() {
+        var mm = this.getMonth() + 1; // getMonth() is zero-based
+        var dd = this.getDate();
+
+        return [this.getFullYear(),
+            (mm>9 ? '' : '0') + mm,
+            (dd>9 ? '' : '0') + dd
+        ].join('');
+    };
+    var date = new Date();
+    var today = date.yyyymmdd();
+
+    //start redirecting
+    if(document.referrer!==mobile && document.referrer!==pc){//does not come from normal site
+        document.referrer.replace(emptyad);
+        //alert("nothing");
+    }else if(localStorage.getItem(date)!==today){
+
+        //record exit time
+        localStorage.setItem("time",date.getTime());
+        
+        if(localStorage.getItem("ad")!==today){//today first time
+            window.location.replace(ad1);
+        }else if(localStorage.getItem("ad")==today && localStorage.getItem("date")!==today){//today second time
+            window.location.replace(ad2);
+        }else{
+            alert("You have hit the maximum time per day, please come back tomorrow!")
+            window.location.replace("./");
+        }
+    }
+</script>
+</body>
+</html>

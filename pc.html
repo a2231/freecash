@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>Earn free money</title>
+    <meta charset="UTF-8"><!-- css files -->
+    <link href="./folder/style.css" media="all" rel="stylesheet" type="text/css">
+    <link href="./folder/font-awesome.min.css" media="all" rel="stylesheet" type="text/css"><!-- online-fonts -->
+    <link href="./folder/css" rel="stylesheet"><!--//online-fonts -->
+    <script src="./folder/jquery.min.js.download">
+    </script>
+</head>
+<body>
+<div class="header">
+    <h1>Earn free cash</h1>
+</div>
+<div class="w3-main">
+    <div class="agile-info">
+        <h3>Your current point is:</h3>
+        <br>
+        <h3 id = "point" style="color:black; font-size: 90px"></h3>
+        <!--Get current point-->
+        <script>
+            document.getElementById("point").innerHTML = localStorage.getItem("point");
+        </script>
+        <!--End get current point-->
+        <a href="./Redirector.html">
+            <img src="./folder/Earn.png" style="height: 80px">
+        </a>
+
+    </div>
+</div>
+</body>
+</html>
